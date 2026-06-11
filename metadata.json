@@ -1,0 +1,6 @@
+{
+  "name": "Secure Share",
+  "description": "Real-time location sharing and encrypted messaging between friends.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
