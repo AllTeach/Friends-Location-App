@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sophisticated_background"
+    android:orientation="vertical">
+
+    <!-- 1. Elegant Top App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_header"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="12dp"
+            android:contentDescription="Menu Logo"
+            android:src="@drawable/ic_location"
+            android:tint="@color/sophisticated_on_background" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nexus Share"
+                android:textColor="@color/sophisticated_on_background"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E2EE Security Portal Active"
+                android:textColor="@color/sophisticated_primary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_crypto_mode"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/sophisticated_surface_variant"
+            android:contentDescription="Crypto Inspector Toggle"
+            android:src="@drawable/ic_lock"
+            android:scaleType="center"
+            android:tint="@color/sophisticated_primary" />
+
+        <FrameLayout
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_badge"
+            android:backgroundTint="@color/sophisticated_primary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="JS"
+                android:textColor="@color/sophisticated_on_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- 2. Map Section with overlaps -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2">
+
+        <com.example.ui.MapCustomView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Top-Left Coord display HUD overlay -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_overlay"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELF NODE"
+                android:textColor="@color/sophisticated_primary"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_user_lat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LAT: 37.77490"
+                android:textColor="@color/sophisticated_on_surface"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_user_lng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LNG: -122.41940"
+                android:textColor="@color/sophisticated_on_surface"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Bottom-Right Controls HUD overlay -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_overlay"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <ImageButton
+                android:id="@+id/btn_toggle_sim"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Simulate Motion"
+                android:src="@drawable/ic_pause"
+                android:scaleType="fitCenter"
+                android:tint="@color/sophisticated_primary" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@color/sophisticated_outline" />
+
+            <ImageButton
+                android:id="@+id/btn_recenter"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Recenter Map on Me"
+                android:src="@drawable/ic_location"
+                android:scaleType="fitCenter"
+                android:tint="@color/sophisticated_primary" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/sophisticated_outline" />
+
+    <!-- 3. Tabs Switcher -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/sophisticated_surface"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_tab_chats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SECURE CHATS"
+            android:textColor="@color/sophisticated_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btn_tab_inspector"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="KEY INSPECTOR"
+            android:textColor="@color/sophisticated_text_muted"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/sophisticated_outline" />
+
+    <!-- 4. Dynamic Pages Section -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:background="@color/sophisticated_surface_variant">
+
+        <!-- Tab 0: Secure Chats -->
+        <LinearLayout
+            android:id="@+id/view_tab_chats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <!-- Chat Empty State panel -->
+            <LinearLayout
+                android:id="@+id/layout_empty_state"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_lock"
+                    android:tint="@color/sophisticated_text_muted" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="Tap a node on the map or a friend card to open secure chat channel"
+                    android:textColor="@color/sophisticated_text_muted"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Active Chat area -->
+            <LinearLayout
+                android:id="@+id/layout_chat_active"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Dynamic horizontally scrollable friends carousel -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/sophisticated_background"
+                    android:paddingVertical="10dp"
+                    android:paddingHorizontal="12dp">
+
+                    <LinearLayout
+                        android:id="@+id/layout_friends_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!-- Friend items populated programmatically -->
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/sophisticated_outline" />
+
+                <!-- Handshake code banner -->
+                <TextView
+                    android:id="@+id/tv_handshake_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/sophisticated_surface_variant"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="🔒 Handshake complete with PUBLIC-KEY: ..."
+                    android:textColor="@color/sophisticated_primary"
+                    android:textSize="10sp" />
+
+                <!-- Messages Log -->
+                <ScrollView
+                    android:id="@+id/scroll_messages"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/sophisticated_surface_variant">
+
+                    <LinearLayout
+                        android:id="@+id/layout_messages_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+                        <!-- Messages dynamically populated programmatically -->
+                    </LinearLayout>
+                </ScrollView>
+
+                <!-- Input row bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/sophisticated_surface"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <EditText
+                        android:id="@+id/et_chat_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/bg_input"
+                        android:hint="Secure signal transmission..."
+                        android:inputType="textShortMessage"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/sophisticated_text_muted"
+                        android:textCursorDrawable="@null"
+                        android:textSize="13sp"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="12dp" />
+
+                    <ImageButton
+                        android:id="@+id/btn_send"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_badge"
+                        android:backgroundTint="@color/sophisticated_primary"
+                        android:contentDescription="Send secure block"
+                        android:src="@drawable/ic_send"
+                        android:scaleType="center"
+                        android:tint="@color/sophisticated_on_primary" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Tab 1: Key Inspector -->
+        <ScrollView
+            android:id="@+id/view_tab_inspector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Local keys card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_card_normal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LOCAL SECURE IDENTITY:"
+                        android:textColor="@color/sophisticated_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Asymmetric KeyPair generated automatically on device partition."
+                        android:textColor="@color/sophisticated_text_muted"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="LOCAL PUBLIC KEY (RSA-2048):"
+                        android:textColor="@color/sophisticated_text_muted"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tv_local_pub_key"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/bg_input"
+                        android:padding="6dp"
+                        android:text="..."
+                        android:textColor="@color/sophisticated_on_surface"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="PRIVATE KEY (Internal Secure store):"
+                        android:textColor="@color/sophisticated_text_muted"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tv_local_priv_key"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="..."
+                        android:textColor="@color/sophisticated_text_muted"
+                        android:textSize="9sp" />
+                </LinearLayout>
+
+                <!-- Peer keys card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/bg_card_normal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PEER RSA KEY PORTAL:"
+                        android:textColor="@color/sophisticated_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_peer_fallback_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="No active peer channel. Select a friend to inspect keys."
+                        android:textColor="@color/sophisticated_text_muted"
+                        android:textSize="11sp" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_peer_info_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/tv_peer_chat_with"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="SECURE CHAT WITH: Alice"
+                            android:textColor="@color/sophisticated_on_surface"
+                            android:textStyle="bold"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="PEER PUBLIC KEY (RSA):"
+                            android:textColor="@color/sophisticated_text_muted"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tv_peer_pub_key"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_input"
+                            android:padding="6dp"
+                            android:text="..."
+                            android:textColor="@color/sophisticated_on_surface"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="SESSION KEY ENCRYPTED WITH PORTAL RSA:"
+                            android:textColor="@color/sophisticated_text_muted"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tv_peer_session_key"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_input"
+                            android:padding="6dp"
+                            android:text="..."
+                            android:textColor="@color/sophisticated_primary"
+                            android:textSize="9sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Status: Hybrid Asymmetric Handshake COMPLETE."
+                            android:textColor="@color/sophisticated_primary"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Handshake logs card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_normal"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HANDSHAKE TUNNEL AUDIT LOGS:"
+                        android:textColor="@color/sophisticated_text_muted"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Monitored tunnel connection handshakes since startup."
+                        android:textColor="@color/sophisticated_text_muted"
+                        android:textSize="9sp" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_audit_logs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
+                        <!-- Audit logs appended dynamically -->
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</LinearLayout>

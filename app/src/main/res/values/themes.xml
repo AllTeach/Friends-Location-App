@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.MyApplication" parent="android:Theme.DeviceDefault.NoActionBar" />
+    <!-- Base application theme. -->
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/sophisticated_primary</item>
+        <item name="colorOnPrimary">@color/sophisticated_on_primary</item>
+        <item name="colorSecondary">@color/sophisticated_secondary</item>
+        <item name="colorOnSecondary">@color/sophisticated_on_background</item>
+        
+        <!-- Status bar and navigation bar customizations -->
+        <item name="android:statusBarColor">@color/sophisticated_background</item>
+        <item name="android:windowBackground">@color/sophisticated_background</item>
+    </style>
 </resources>

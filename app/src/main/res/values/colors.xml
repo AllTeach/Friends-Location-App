@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Sophisticated Dark Palette -->
+    <color name="sophisticated_background">#1C1B1F</color>
+    <color name="sophisticated_surface">#2B2930</color>
+    <color name="sophisticated_surface_variant">#25232A</color>
+    <color name="sophisticated_outline">#49454F</color>
+    
+    <color name="sophisticated_primary">#D0BCFF</color>
+    <color name="sophisticated_on_primary">#381E72</color>
+    <color name="sophisticated_primary_container">#EADDFF</color>
+    <color name="sophisticated_on_primary_container">#21005D</color>
+    
+    <color name="sophisticated_secondary">#4A4458</color>
+    <color name="sophisticated_tertiary">#B1EEFF</color>
+    <color name="sophisticated_on_tertiary">#003543</color>
+    
+    <color name="sophisticated_on_background">#E6E1E5</color>
+    <color name="sophisticated_on_surface">#E6E1E5</color>
+    <color name="sophisticated_text_muted">#8E8A94</color>
+    
+    <color name="sophisticated_error">#F2B8B5</color>
+    <color name="sophisticated_on_error">#601410</color>
+
+    <!-- Legacy compatibility values -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
